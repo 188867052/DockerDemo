@@ -50,8 +50,9 @@ steps:
     script: 'docker push 542153354/dockerdemo:v1.0'
 
 - task: CmdLine@2
+  displayName: install expect
   inputs:
-    script: 'sudo apt-get install sshpass'
+    script: 'sudo apt−get install expect'
 
 - task: CmdLine@2
   inputs:
