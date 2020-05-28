@@ -31,7 +31,7 @@ namespace DockerDemo.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = nameof(WeatherForecastController) + Guid.NewGuid()
+                Summary = "666"
             })
             .ToArray();
         }

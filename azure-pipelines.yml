@@ -59,6 +59,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) "pwd && docker pull 542153354/dockerdemo:v1.0 && docker stop  `docker ps -aq --filter ancestor=542153354/dockerdemo:v1.0` && docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh && logout"
+      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) "docker pull 542153354/dockerdemo:v1.0 && docker stop $(docker ps -q --filter name="dockerdemocontainer") && docker run --name dockerdemocontainer-it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh && logout"
 
 
