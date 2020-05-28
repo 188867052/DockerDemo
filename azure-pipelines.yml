@@ -60,6 +60,8 @@ steps:
   inputs:
     script: |
       pwd
+      ls
+      dir
 
 - task: CmdLine@2
   displayName: deploy api
