@@ -20,7 +20,9 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP)'
+    script: |
+      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP)
+      docker pull 542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
   inputs:
