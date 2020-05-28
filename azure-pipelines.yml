@@ -11,17 +11,6 @@ pool:
 
 steps:
 
-- task: CmdLine@2
-  displayName: install sshpass
-  inputs:
-    script: |
-      sudo apt-get install sshpass
-      sudo apt-get update
-
-- task: CmdLine@2
-  inputs:
-    script: |
-      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) "docker pull 542153354/dockerdemo:v1.0 && docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh"
       
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
@@ -62,6 +51,16 @@ steps:
   inputs:
     script: 'docker push 542153354/dockerdemo:v1.0'
 
+- task: CmdLine@2
+  displayName: install sshpass
+  inputs:
+    script: |
+      sudo apt-get install sshpass
+      sudo apt-get update
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) "docker pull 542153354/dockerdemo:v1.0 && docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh && exit"
 
 
