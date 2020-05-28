@@ -55,7 +55,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sshpass -p $(TencentCloudPassword) ssh ubuntu@$(TencentCloudIP)'
+    script: 'sshpass -p $(TencentCloudPassword) ssh ubuntu@$(TencentCloudIP) -Tq'
 
 - task: CmdLine@2
   inputs:
