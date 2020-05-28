@@ -52,7 +52,7 @@ steps:
 - task: CmdLine@2
   displayName: install expect
   inputs:
-    script: 'sudo apt−get install expect'
+    script: 'sudo apt-get install expect'
 
 - task: CmdLine@2
   inputs:
