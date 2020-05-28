@@ -14,11 +14,13 @@ steps:
 - task: CmdLine@2
   displayName: install sshpass
   inputs:
-    script: 'sudo apt-get install sshpass'
+    script: |
+      sudo apt-get install sshpass
+      sudo apt-get update
 
 - task: CmdLine@2
   inputs:
-    script: 'sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t ubuntu@$(TencentCloudIP)'
+    script: 'sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP)'
 
 - task: CmdLine@2
   inputs:
