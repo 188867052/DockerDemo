@@ -49,7 +49,9 @@ steps:
   inputs:
     script: 'docker push 542153354/dockerdemo:v1.0'
 
-
+- task: CmdLine@2
+  inputs:
+    script: 'sudo apt-get install sshpass'
 
 - task: CmdLine@2
   inputs:
