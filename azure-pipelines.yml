@@ -10,6 +10,24 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: CmdLine@2
+  displayName: install sshpass
+  inputs:
+    script: 'sudo apt-get install sshpass'
+
+- task: CmdLine@2
+  inputs:
+    script: 'sshpass -p $(TencentCloudPassword) ssh -p 22 ubuntu@$(TencentCloudIP)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'docker pull 542153354/dockerdemo:v1.0'
+    
+- task: CmdLine@2
+  inputs:
+    script: 'docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh'
+
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
   inputs:
@@ -49,21 +67,6 @@ steps:
   inputs:
     script: 'docker push 542153354/dockerdemo:v1.0'
 
-- task: CmdLine@2
-  displayName: install expect
-  inputs:
-    script: 'sudo apt-get install sshpass'
 
-- task: CmdLine@2
-  inputs:
-    script: 'sshpass -p $(TencentCloudPassword) ssh -p 22 ubuntu@$(TencentCloudIP)'
-
-- task: CmdLine@2
-  inputs:
-    script: 'docker pull 542153354/dockerdemo:v1.0'
-    
-- task: CmdLine@2
-  inputs:
-    script: 'docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh'
 
 
