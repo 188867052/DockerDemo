@@ -35,11 +35,5 @@ namespace DockerDemo.Controllers
             })
             .ToArray();
         }
-
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get2()
-        {
-            return default;
-        }
     }
 }
