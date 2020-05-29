@@ -17,6 +17,7 @@ steps:
     publishWebProjects: true
     arguments: '-c Release'
     zipAfterPublish: false
+
 - task: DockerInstaller@0
   displayName: Docker Installer
   inputs:
@@ -64,8 +65,14 @@ steps:
       dir
 
 - task: CmdLine@2
-  displayName: deploy api
+  displayName: deploy api to TencentCloud
   inputs:
     script: |
       sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy.sh
+
+- task: CmdLine@2
+  displayName: deploy api to AliCloud
+  inputs:
+    script: |
+      sshpass -p "$(AliCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t root@$(AliCloudIP) bash -s < deploy.sh
 
