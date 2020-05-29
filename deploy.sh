@@ -16,6 +16,6 @@ then
 fi
 
 sudo docker pull 542153354/dockerdemo:v1.0 
-sudo docker run --name dockerdemocontainer -d -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh 
+sudo docker run -d -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh 
 
 exit
