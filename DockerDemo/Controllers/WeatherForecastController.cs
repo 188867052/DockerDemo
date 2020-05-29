@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DockerDemo.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DockerDemo.Controllers
@@ -22,7 +17,7 @@ namespace DockerDemo.Controllers
         [HttpGet]
         public string Get()
         {
-            return "v7";
+            return "v8";
         }
     }
 }
