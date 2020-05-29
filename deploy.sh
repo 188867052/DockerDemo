@@ -2,7 +2,7 @@
 
 containerId="` sudo docker ps | grep "8080->80" | awk  '{print $1}' `"
 echo "containerId:$containerId"
-if [ -z "$containerId" ]
+if [ -n "$containerId" ]
 then
 	sudo docker stop $containerId
 	sudo docker rm $containerId
@@ -10,7 +10,7 @@ fi
 
 imageId="`sudo docker images | grep "dockerdemo   v1.0" | awk  '{print $3}'`"
 echo "imageId:$imageId"
-#!if [ -z "$imageId" ]
+#!if [ -n "$imageId" ]
 #!then
 #!	sudo docker rmi  $imageId
 #!fi
