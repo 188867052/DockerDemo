@@ -31,9 +31,15 @@ namespace DockerDemo.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = "v4"
+                Summary = "v5"
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        public IEnumerable<WeatherForecast> Get2()
+        {
+            return default;
         }
     }
 }
