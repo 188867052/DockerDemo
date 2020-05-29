@@ -20,9 +20,9 @@ namespace DockerDemo.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new OSharpSiteContext().Module.Select(o => o.Code);
+            return "v7";
         }
     }
 }
