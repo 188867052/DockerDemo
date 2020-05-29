@@ -10,10 +10,10 @@ fi
 
 imageId="`sudo docker images | grep "dockerdemo   v1.0" | awk  '{print $3}'`"
 echo "imageId:$imageId"
-#!if [ -n "$imageId" ]
-#!then
-#!	sudo docker rmi  $imageId
-#!fi
+if [ -n "$imageId" ]
+then
+	sudo docker rmi  $imageId
+fi
 
 sudo docker pull 542153354/dockerdemo:v1.0 
 sudo docker run --name dockerdemocontainer -d -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh 
