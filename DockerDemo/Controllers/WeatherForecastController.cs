@@ -22,7 +22,7 @@ namespace DockerDemo.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new OSharpSiteContext().Module.Select(o => o.Name);
+            return new OSharpSiteContext().Module.Select(o => o.Code);
         }
     }
 }
