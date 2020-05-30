@@ -42,6 +42,7 @@ steps:
   inputs:
     script: |
         sudo docker login -u 542153354 -p $(DockerPassword)
+        sudo docker tag dockerdemo ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
         sudo docker push 542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
