@@ -29,21 +29,20 @@ steps:
     command: 'build'
     Dockerfile: '**/Dockerfile'
     arguments: '-t 542153354/dockerdemo:v1.0'
-
-- task: CmdLine@2
-  displayName: Docker login
-  inputs:
-    script: 'docker login -u 542153354 -p $(DockerPassword)'
     
 - task: CmdLine@2
-  displayName: Docker images
+  displayName: Docker push tencentyun
   inputs:
-    script: 'docker images'
+    script: |
+      sudo docker login --username=100013768990 ccr.ccs.tencentyun.com
+      sudo docker push ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
-  displayName: Docker ps
+  displayName: DockerHub push
   inputs:
-    script: 'docker ps'
+    script: |
+        sudo docker login -u 542153354 -p $(DockerPassword)
+        sudo docker push 542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
   displayName: Docker push
