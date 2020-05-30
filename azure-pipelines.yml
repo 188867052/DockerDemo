@@ -35,6 +35,7 @@ steps:
   inputs:
     script: |
       sudo docker login --username=100013768990 ccr.ccs.tencentyun.com
+      sudo docker tag dockerdemo ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
       sudo docker push ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
@@ -42,7 +43,6 @@ steps:
   inputs:
     script: |
         sudo docker login -u 542153354 -p $(DockerPassword)
-        sudo docker tag dockerdemo ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
         sudo docker push 542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
