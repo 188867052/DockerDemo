@@ -29,14 +29,6 @@ steps:
     command: 'build'
     Dockerfile: '**/Dockerfile'
     arguments: '-t 542153354/dockerdemo:v1.0'
-    
-- task: CmdLine@2
-  displayName: Docker push tencentyun
-  inputs:
-    script: |
-      sudo docker login --username=100013768990 ccr.ccs.tencentyun.com
-      sudo docker tag dockerdemo ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
-      sudo docker push ccr.ccs.tencentyun.com/542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
   displayName: DockerHub push
