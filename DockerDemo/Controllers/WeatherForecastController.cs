@@ -17,7 +17,7 @@ namespace DockerDemo.Controllers
         [HttpGet]
         public string Get()
         {
-            return "v12";
+            return "v13";
         }
     }
 }
