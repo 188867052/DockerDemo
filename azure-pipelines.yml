@@ -38,11 +38,6 @@ steps:
         sudo docker push 542153354/dockerdemo:v1.0
 
 - task: CmdLine@2
-  displayName: Docker push
-  inputs:
-    script: 'docker push 542153354/dockerdemo:v1.0'
-
-- task: CmdLine@2
   displayName: install sshpass
   inputs:
     script: |
